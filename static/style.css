@@ -1,0 +1,145 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    font-family: 'helvetica neue', Helvetica, Arial, sans-serif;
+}
+
+#wallpaper {
+    background: url(/static/wallpaper.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./static/wallpaper.jpg', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/wallpaper.jpg', sizingMethod='scale')";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+#topbox {
+    padding-top: 36px;
+    text-align: center;
+    color: #000;
+}
+
+#centerbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -300px;
+    color: #000;
+    font-size: 24px;
+    line-height:28px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+
+    /* border:1px solid #CCC; */
+    background:#FFF; /* fallback for browser that not support rgba */
+    background:rgb(255, 255, 0);
+    background: rgba(255, 255, 255, .8); /* Works on all modern browsers */
+
+    // IE Fixes
+    background: transparent\9; /* clear current background for ie */
+    zoom:1; /* required for the filters */
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#77FFFFFF, endColorstr=#77FFFFFF);
+    /* For IE 8*/
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#77FFFFFF, endColorstr=#77FFFFFF)";
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.centered {
+    text-align: center;
+}
+
+.br {
+    margin-bottom: 8px;
+}
+
+.br-2 {
+    margin-bottom: 18px;
+}
+
+.br-top {
+    margin-top: 8px;
+}
+
+h1 {
+    font-size: 38px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+.red {
+    color: #f0381c;
+}
+
+.blue {
+    color: #1b47a2;
+}
+
+.shadowed {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+a {
+    color: #f0381c;
+}
