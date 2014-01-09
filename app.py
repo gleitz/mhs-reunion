@@ -28,8 +28,6 @@ def github_hook():
         site_branch = 'master'
         data_url = data.get('repository', {}).get('url')
         data_branch = data.get('ref')
-        log.error(data_url)
-        log.error(data_branch)
         if data_url == site_url and site_branch in data_branch:
             log.error("Post-receive trigger. Exiting in 1 second")
             os.system('git pull')
