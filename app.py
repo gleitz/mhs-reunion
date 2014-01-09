@@ -10,7 +10,8 @@ app.wsgi_app = ReverseProxied(app.wsgi_app)
 
 # Logger
 import logging
-log = logging.getLogger(__name__)
+logging.basicConfig()
+log = logging.getLogger('mhs')
 
 @app.route('/')
 def home():
@@ -21,21 +22,25 @@ def home():
 
 @app.route('/fhqwhgads',methods=['POST'])
 def github_hook():
-    log.info("HOOK RECEIVED")
-    data = json.loads(request.data)
-    site_url = 'https://github.com/gleitz/mhs-reunion'
-    site_branch = 'master'
-    data_url = data.get('repository', {}).get('url')
-    data_branch = data.get('ref')
-    log.info(data_url)
-    log.info(data_branch)
-    if data_url == site_url and site_branch == data_branch:
-        log.info("Post-receive trigger. Exiting in 1 second")
-        os.system('git pull')
-        with open('/home/gleitz/projects/webapps/pid/mhs-reunion.pid', 'r') as f:
-            pid = int(f)
-            os.kill(pid, signal.SIGHUP)
-    return True
+    log.error("HOOK RECEIVED")
+    try:
+        data = json.loads(request.data)
+        site_url = 'https://github.com/gleitz/mhs-reunion'
+        site_branch = 'master'
+        data_url = data.get('repository', {}).get('url')
+        data_branch = data.get('ref')
+        log.error(data_url)
+        log.error(data_branch)
+        if data_url == site_url and site_branch == data_branch:
+            log.error("Post-receive trigger. Exiting in 1 second")
+            os.system('git pull')
+            with open('/home/gleitz/projects/webapps/pid/mhs-reunion.pid', 'r') as f:
+                pid = int(f)
+                os.kill(pid, signal.SIGHUP)
+    except ValueError:
+        log.error("no object decoded")
+
+    return 'ok'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
