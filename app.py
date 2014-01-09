@@ -24,8 +24,8 @@ def home():
 def github_hook():
     log.error("HOOK RECEIVED")
     try:
-        log.error(request.form)
-        data = json.loads(request.data)
+        log.error(request.form['payload'])
+        data = json.loads(request.form['payload'])
         site_url = 'https://github.com/gleitz/mhs-reunion'
         site_branch = 'master'
         data_url = data.get('repository', {}).get('url')
