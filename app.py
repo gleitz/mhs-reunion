@@ -34,7 +34,7 @@ def github_hook():
             log.error("Post-receive trigger. Exiting in 1 second")
             os.system('git pull')
             with open('/home/gleitz/projects/webapps/pid/mhs-reunion.pid', 'r') as f:
-                pid = int(f)
+                pid = int(f.read())
                 os.kill(pid, signal.SIGHUP)
     except ValueError:
         log.error("no object decoded")
