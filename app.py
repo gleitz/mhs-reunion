@@ -8,6 +8,10 @@ from flaskutil import ReverseProxied
 app = Flask(__name__)
 app.wsgi_app = ReverseProxied(app.wsgi_app)
 
+# Logger
+import logging
+log = logging.getLogger(__name__)
+
 @app.route('/')
 def home():
     return render_template('base.html',
@@ -22,10 +26,10 @@ def github_hook():
     site_branch = 'master'
     data_url = data.get('repository', {}).get('url')
     data_branch = data.get('ref')
-    print data_url
-    print data_branch
+    log.info(data_url)
+    log.info(data_branch)
     if data_url == site_url and site_branch == data_branch:
-        print "Post-receive trigger. Exiting in 1 second"
+        log.info("Post-receive trigger. Exiting in 1 second")
         os.system('git pull')
         with open('/home/gleitz/projects/webapps/pid/mhs-reunion.pid', 'r') as f:
             pid = int(f)
