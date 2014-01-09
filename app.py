@@ -22,9 +22,7 @@ def home():
 
 @app.route('/fhqwhgads',methods=['POST'])
 def github_hook():
-    log.error("HOOK RECEIVED")
     try:
-        log.error(request.form['payload'])
         data = json.loads(request.form['payload'])
         site_url = 'https://github.com/gleitz/mhs-reunion'
         site_branch = 'master'
@@ -32,7 +30,7 @@ def github_hook():
         data_branch = data.get('ref')
         log.error(data_url)
         log.error(data_branch)
-        if data_url == site_url and site_branch == data_branch:
+        if data_url == site_url and site_branch in data_branch:
             log.error("Post-receive trigger. Exiting in 1 second")
             os.system('git pull')
             with open('/home/gleitz/projects/webapps/pid/mhs-reunion.pid', 'r') as f:
