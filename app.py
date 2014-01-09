@@ -21,6 +21,7 @@ def home():
 
 @app.route('/fhqwhgads',methods=['POST'])
 def github_hook():
+    log.info("HOOK RECEIVED")
     data = json.loads(request.data)
     site_url = 'https://github.com/gleitz/mhs-reunion'
     site_branch = 'master'
