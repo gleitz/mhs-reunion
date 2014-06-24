@@ -20,6 +20,20 @@ def home():
                            style_url = url_for('static', filename='style.css'),
                            wallpaper_url = url_for('static', filename='wallpaper.jpg'))
 
+@app.route('/register')
+def schedule():
+    return render_template('register.html',
+                           favicon_url = url_for('static', filename='favicon.ico'),
+                           style_url = url_for('static', filename='style.css'),
+                           wallpaper_url = url_for('static', filename='wallpaper.jpg'))
+
+@app.route('/thanks')
+def thanks():
+    return render_template('thanks.html',
+                           favicon_url = url_for('static', filename='favicon.ico'),
+                           style_url = url_for('static', filename='style.css'),
+                           wallpaper_url = url_for('static', filename='wallpaper.jpg'))
+
 @app.route('/fhqwhgads',methods=['POST'])
 def github_hook():
     try:
