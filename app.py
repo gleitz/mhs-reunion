@@ -20,7 +20,7 @@ def home():
                            style_url = url_for('static', filename='style.css'),
                            wallpaper_url = url_for('static', filename='wallpaper.jpg'))
 
-@app.route('/register')
+@app.route('/purchase')
 def schedule():
     return render_template('register.html',
                            favicon_url = url_for('static', filename='favicon.ico'),
