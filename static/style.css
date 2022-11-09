@@ -27,7 +27,8 @@ body {
     line-height: 1;
 }
 ol, ul {
-    list-style: none;
+    /* list-style: none; */
+  padding-left: 18px;
 }
 blockquote, q {
     quotes: none;
@@ -57,12 +58,12 @@ html {
     top: 50%;
     left: 50%;
     width: 620px;
-    height: 300px;
+    height: 380px;
     margin-top: -150px;
     margin-left: -310px;
     color: #000;
     font-size: 24px;
-    line-height:28px;
+    line-height:32px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -130,4 +131,13 @@ h3 {
 
 a {
     color: #f0381c;
+}
+
+#topbox a {
+  font-size: 18px;
+  color: #000;
+}
+
+.links {
+  margin-top: 18px;
 }
